@@ -12,12 +12,13 @@ var(
 )
 func main() {
 	logger = *config.GetLogger("main")
-
-	err:=config.Init()
-	if err!=nil{
-		logger.Errorf("Config initialization error: %v",err)
+	// Initialize Configs
+	err := config.Init()
+	if err != nil {
+		logger.Errorf("config initialization error: %v", err)
 		return
-		//panic(err)
 	}
+
+	// Initialize Router
 	router.Initialize()
 }
